@@ -1,0 +1,33 @@
+﻿#ifndef GAMEINTERFACE_H
+#define GAMEINTERFACE_H
+#include<QWidget>
+#include<QDialogButtonBox>
+#include<QLayout>
+#include<QPushButton>
+
+enum gameMode{basic,relax,level};
+enum gameState{going,pausing};
+class Game:public QWidget
+{
+    Q_OBJECT
+
+public:
+    Game(){};
+    Game(gameMode mode);
+    ~Game();
+public slots:
+    void on_ButtonSP();
+    void reset();
+    prompt();
+    back();
+private:
+    gameState state;
+    QDialogButtonBox* menu;
+    QPushButton *buttonSP;
+    QPushButton *buttonReset;
+    QPushButton *buttonPrompt;
+    QPushButton *buttonBack;
+};
+
+
+#endif // GAMEINTERFACE_H
